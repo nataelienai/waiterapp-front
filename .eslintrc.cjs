@@ -25,6 +25,8 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': 'error',
+    'no-underscore-dangle': 'off',
+    'react/jsx-key': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
     'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
