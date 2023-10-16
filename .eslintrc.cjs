@@ -28,7 +28,11 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
     'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
-    'import/extensions': ['error', 'ignorePackages', { ts: 'never' }],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      { ts: 'never', tsx: 'never' },
+    ],
     'import/order': [
       'error',
       {
