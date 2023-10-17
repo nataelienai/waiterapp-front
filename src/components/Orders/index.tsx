@@ -7,14 +7,14 @@ const orders: IOrder[] = [
   {
     _id: '34738947982348923',
     table: '123',
-    status: 'DONE',
+    status: 'WAITING',
     products: [
       {
         _id: '23489573289328',
         quantity: 3,
         product: {
           name: 'Pizza quatro queijos',
-          imagePath: '73298472389-quatro-queijos.png',
+          imagePath: '1697331955821-quatro-queijos.png',
           price: 40,
         },
       },
@@ -23,7 +23,7 @@ const orders: IOrder[] = [
         quantity: 3,
         product: {
           name: 'Coca cola',
-          imagePath: '749382749823-coca-cola.png',
+          imagePath: '1697377719662-coca-cola.png',
           price: 7,
         },
       },
