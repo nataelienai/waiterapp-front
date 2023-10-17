@@ -28,6 +28,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'react/jsx-key': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
+    'react/jsx-no-bind': 'off',
     'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
     'import/extensions': [
