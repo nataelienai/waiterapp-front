@@ -138,4 +138,9 @@ export const Actions = styled.footer`
     border: 0;
     margin-top: 12px;
   }
+
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;

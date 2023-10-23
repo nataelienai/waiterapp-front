@@ -7,10 +7,20 @@ import { Actions, Body, OrderDetails, Overlay } from './styles';
 interface IOrderModalProps {
   visible: boolean;
   order: IOrder | null;
+  isLoading: boolean;
   onClose: () => void;
+  onChangeOrderStatus: () => Promise<void>;
+  onCancelOrder: () => Promise<void>;
 }
 
-export function OrderModal({ visible, order, onClose }: IOrderModalProps) {
+export function OrderModal({
+  visible,
+  order,
+  isLoading,
+  onClose,
+  onChangeOrderStatus,
+  onCancelOrder,
+}: IOrderModalProps) {
   if (!visible || !order) {
     return null;
   }
@@ -77,12 +87,30 @@ export function OrderModal({ visible, order, onClose }: IOrderModalProps) {
         </OrderDetails>
 
         <Actions>
-          <button type="button" className="primary">
-            <span>👩‍🍳</span>
-            <strong>Iniciar producação</strong>
-          </button>
+          {order.status !== 'DONE' && (
+            <button
+              type="button"
+              className="primary"
+              // eslint-disable-next-line @typescript-eslint/no-misused-promises
+              onClick={onChangeOrderStatus}
+              disabled={isLoading}
+            >
+              <span>{order.status === 'WAITING' ? '👩‍🍳' : '✅'}</span>
+              <strong>
+                {order.status === 'WAITING'
+                  ? 'Iniciar producação'
+                  : 'Concluir pedido'}
+              </strong>
+            </button>
+          )}
 
-          <button type="button" className="secondary">
+          <button
+            type="button"
+            className="secondary"
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            onClick={onCancelOrder}
+            disabled={isLoading}
+          >
             <strong>Cancelar pedido</strong>
           </button>
         </Actions>
