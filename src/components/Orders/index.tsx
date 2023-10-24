@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import socketIo from 'socket.io-client';
 
 import { IOrder } from '../../types/IOrder';
 import { api } from '../../utils/api';
@@ -16,6 +17,22 @@ export function Orders() {
         setOrders(response.data as IOrder[]);
       })
       .catch(console.log);
+  }, []);
+
+  useEffect(() => {
+    const socket = socketIo('http://localhost:3001', {
+      transports: ['websocket'],
+    });
+
+    function handleNewOrder(order: IOrder) {
+      setOrders((prevState) => prevState.concat(order));
+    }
+
+    socket.on('orders@new', handleNewOrder);
+
+    return () => {
+      socket.removeListener('orders@new', handleNewOrder);
+    };
   }, []);
 
   const waiting = orders.filter((order) => order.status === 'WAITING');
