@@ -1,7 +1,7 @@
 # WaiterApp Web
 
 <p align="center">
-  <img src="./images/web-app.png" src="Aplicação Web do WaiterApp" />
+  <img src="./images/web-app.png" alt="Aplicação Web do WaiterApp" />
 </p>
 
 WaiterApp, o App do Garçom, descarta a necessidade de comandas físicas em restaurantes e bares. O aplicativo permite que o garçom realize pedidos e os envie diretamente para a cozinha, onde haverá um painel para acompanhar e atualizar os pedidos.
